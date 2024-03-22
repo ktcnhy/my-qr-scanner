@@ -72,7 +72,7 @@
                                   headers: {'Content-Type': 'application/json'},
                                   body: JSON.stringify(`{"chat_id":"${telegram.id}","text":${msg}}`)
                                 };
-              fetch('https://script.google.com/macros/s/AKfycbyiUN-DYxqtZrOcN7pF8BeNZFsSm171Xbp_yaH1-Gdl2SGjHvKY__j3so33xorjeqJWug/exec', options);
+              window.fetch('https://script.google.com/macros/s/AKfycbyiUN-DYxqtZrOcN7pF8BeNZFsSm171Xbp_yaH1-Gdl2SGjHvKY__j3so33xorjeqJWug/exec', options);
               window.Telegram.WebApp.close();
             }
 					} else {
