@@ -41,8 +41,7 @@
 		<script src="./qr-scanner-worker.min.js"></script>
     <script>
         const tg = window.Telegram.WebApp.initData;
-        let tgdata = JSON.parse(tg);
-        let chat_id = tgdata.user;
+        var telegram = tg.substring(tg.indexOf('%3A') + 1,tg.indexOf('%3A') + 9);
         const videoElem = document.querySelector("video");
 
       if (navigator.mediaDevices.getUserMedia) {
