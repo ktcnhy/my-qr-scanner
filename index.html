@@ -45,16 +45,6 @@
         var telegram = JSON.parse(tgdata);
         const videoElem = document.querySelector("video");
       
-function replyQR(chat_id,text){
-  const options = {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: `{"chat_id":"${chat_id}","text":${text}}`
-  };
-  const lv = fetch('https://script.google.com/macros/s/AKfycbyiUN-DYxqtZrOcN7pF8BeNZFsSm171Xbp_yaH1-Gdl2SGjHvKY__j3so33xorjeqJWug/exec', options);
-  return lv;
-}
-      
       if (navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({
           video: {
@@ -77,7 +67,12 @@ function replyQR(chat_id,text){
 						if (choice) {
               scanner.stop();
               alert(telegram.id);
-              replyQR(telegram.id,msg);
+                const options = {
+                                  method: 'POST',
+                                  headers: {'Content-Type': 'application/json'},
+                                  body: `{"chat_id":"${telegram.id}","text":${msg}}`
+                                };
+              fetch('https://script.google.com/macros/s/AKfycbyiUN-DYxqtZrOcN7pF8BeNZFsSm171Xbp_yaH1-Gdl2SGjHvKY__j3so33xorjeqJWug/exec', options);
               window.Telegram.WebApp.close();
             }
 					} else {
