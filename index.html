@@ -44,13 +44,6 @@
         var tgdata = decodeURIComponent(tg.split('&')[1].substring(5));
         var telegram = JSON.parse(tgdata);
         const videoElem = document.querySelector("video");
-
-    const result = await response.json();
-    console.log("Success:", result);
-  } catch (error) {
-    console.error("Error:", error);
-    }
-  }
       
       if (navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({
