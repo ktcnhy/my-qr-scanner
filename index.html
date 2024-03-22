@@ -40,7 +40,7 @@
 		<script src="./qr-scanner.umd.min.js"></script>
 		<script src="./qr-scanner-worker.min.js"></script>
     <script>
-        const telegram = window.Telegram.WebApp.initDataUnsafe;
+        const telegram = window.Telegram.WebApp.initDataUnsafe.chat.id;
         const videoElem = document.querySelector("video");
 
       if (navigator.mediaDevices.getUserMedia) {
@@ -64,7 +64,7 @@
 						const choice = confirm(`Chat id: ${msg}`);
 						if (choice) {
               scanner.stop();
-              alert(telegram.chat.id);
+              alert(telegram);
               window.Telegram.WebApp.close();
             }
 					} else {
