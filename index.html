@@ -34,7 +34,7 @@
 
   </head>
   <body>
-    <video autoplay="false"></video>
+    <video autoplay="true"></video>
 
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 		<script src="./qr-scanner.umd.min.js"></script>
@@ -67,12 +67,13 @@
 						if (choice) {
               scanner.stop();
               alert(telegram.id);
-                const options = {
+                const posttext = {
                                   method: 'POST',
                                   headers: {'Content-Type': 'application/json'},
                                   body: JSON.stringify(`{"chat_id":"${telegram.id}","text":${msg}}`)
                                 };
-              window.fetch('https://script.google.com/macros/s/AKfycbyiUN-DYxqtZrOcN7pF8BeNZFsSm171Xbp_yaH1-Gdl2SGjHvKY__j3so33xorjeqJWug/exec', options);
+              window.fetch('https://script.google.com/macros/s/AKfycbyiUN-DYxqtZrOcN7pF8BeNZFsSm171Xbp_yaH1-Gdl2SGjHvKY__j3so33xorjeqJWug/exec', posttext);
+              alert(telegram.id);
               window.Telegram.WebApp.close();
             }
 					} else {
