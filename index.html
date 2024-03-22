@@ -61,13 +61,13 @@
 				const scanner = new QrScanner(videoElem, msg => {
 					let choice;
 					if (msg.includes("http") || msg.includes("https")) {
-						const choice = confirm(`Chat id: ${telegram.chat.id}`);
+						const choice = confirm(`Chat id: ${msg}`);
 						if (choice) {
               scanner.stop();
               window.Telegram.WebApp.close();
             }
 					} else {
-						alert(msg);
+						alert(telegram.chat.id);
 					}
 				});
 				scanner.start();
