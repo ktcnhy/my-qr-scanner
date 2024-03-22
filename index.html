@@ -36,10 +36,11 @@
   <body>
     <video autoplay="false"></video>
 
-    
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 		<script src="./qr-scanner.umd.min.js"></script>
 		<script src="./qr-scanner-worker.min.js"></script>
     <script>
+      const teleChatId = window.Telegram.WebAppUser().id;
       const videoElem = document.querySelector("video");
 
       if (navigator.mediaDevices.getUserMedia) {
@@ -56,14 +57,14 @@
           .catch(function (error) {
 						console.log(error);
           });
-
+        
 				const scanner = new QrScanner(videoElem, msg => {
 					let choice;
 					if (msg.includes("http") || msg.includes("https")) {
 						const choice = confirm(`Redirect to: ${msg}`);
 						if (choice) {
               scanner.stop();
-              //window.location.href = msg;
+              window.Telegram.WebApp.close();
             }
 					} else {
 						alert(msg);
