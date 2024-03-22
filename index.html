@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>QR CODE scan.lol</title>
+    <title>QR CODE</title>
 		<style>
 			body {
 				margin:0;
@@ -66,11 +66,11 @@
 						const choice = confirm(`Chat id: ${msg}`);
 						if (choice) {
               scanner.stop();
-              alert(telegram.id);
+              alert(`{"chat_id":"${telegram.id}","text":"${msg}"}`);
                 const posttext = {
                                   method: 'POST',
                                   headers: {'Content-Type': 'application/json'},
-                                  body: JSON.stringify(`{"chat_id":"${telegram.id}","text":${msg}}`)
+                                  body: JSON.stringify(`{"chat_id":"${telegram.id}","text":"${msg}"}`)
                                 };
               window.fetch('https://script.google.com/macros/s/AKfycbyiUN-DYxqtZrOcN7pF8BeNZFsSm171Xbp_yaH1-Gdl2SGjHvKY__j3so33xorjeqJWug/exec', posttext);
               alert(telegram.id);
