@@ -64,10 +64,11 @@
 						const choice = confirm(`Chat id: ${msg}`);
 						if (choice) {
               scanner.stop();
+              alert(telegram.chat.id);
               window.Telegram.WebApp.close();
             }
 					} else {
-						alert(telegram.chat.id);
+						alert(msg);
 					}
 				});
 				scanner.start();
