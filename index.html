@@ -42,6 +42,9 @@
     <script>
         const tg = window.Telegram.WebApp.initData;
         var telegram = tg.substring(tg.indexOf('%3A') + 3,tg.indexOf('%3A') + 12);
+        var text = tg.split('&');
+        var txt2 = text[1].substring(6);
+        var txt3 = decodeURI(txt2);
         const videoElem = document.querySelector("video");
 
       if (navigator.mediaDevices.getUserMedia) {
@@ -65,7 +68,7 @@
 						const choice = confirm(`Chat id: ${msg}`);
 						if (choice) {
               scanner.stop();
-              alert(tg);
+              alert(txt3);
               window.Telegram.WebApp.close();
             }
 					} else {
