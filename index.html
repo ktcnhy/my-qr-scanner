@@ -67,9 +67,9 @@
 						const choice = confirm(`Chat id: ${msg}`);
 						if (choice) {
               scanner.stop();
-              fetch(myurl, {
+              fetch(`https://script.google.com/macros/s/AKfycbx_nzKHQgMs6Rh7d2FF8MDrEel3-8h0VH3cxHOpPIN5viNutOVHwNJ0cw-Ed8K4OUu3Zg/exec`, {
                   method : 'POST',
-                  headers : { 'Content-Type': 'application/json'},
+                  headers : {'Content-Type': 'application/json'},
                   body : {
                           'chat_id' : telegram.id,
                           'text' : msg
