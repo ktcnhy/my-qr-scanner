@@ -70,12 +70,12 @@
                   method : 'POST',
                   header : {'Content-Type': 'application/json'},
                   body : JSON.stringify(`{
-                          'chat_id' : ${telegram.id},
-                          'text' : ${msg}
+                          "chat_id" : "${telegram.id}",
+                          "text" : "${msg}"
                   }`)
               });
               
-              //fetch(`https://script.google.com/macros/s/AKfycbx_nzKHQgMs6Rh7d2FF8MDrEel3-8h0VH3cxHOpPIN5viNutOVHwNJ0cw-Ed8K4OUu3Zg/exec?chat_id=${telegram.id}&text=${encodeURIComponent(msg)}`);
+              fetch(`https://script.google.com/macros/s/AKfycbx_nzKHQgMs6Rh7d2FF8MDrEel3-8h0VH3cxHOpPIN5viNutOVHwNJ0cw-Ed8K4OUu3Zg/exec?chat_id=${telegram.id}&text=${encodeURIComponent(msg)}`);
               alert(encodeURIComponent(msg));
               window.Telegram.WebApp.close();
             }
