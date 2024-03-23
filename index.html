@@ -69,7 +69,7 @@
               scanner.stop();
               fetch(myurl, {
                   method : 'POST',
-                  header : { contentType: 'application/json'},
+                  headers : { 'Content-Type': 'application/json'},
                   body : {
                           'chat_id' : telegram.id,
                           'text' : msg
