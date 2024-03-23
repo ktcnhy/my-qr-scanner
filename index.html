@@ -40,7 +40,6 @@
 		<script src="./qr-scanner.umd.min.js"></script>
 		<script src="./qr-scanner-worker.min.js"></script>
     <script>
-        const myurl = `https://script.google.com/macros/s/AKfycbx_nzKHQgMs6Rh7d2FF8MDrEel3-8h0VH3cxHOpPIN5viNutOVHwNJ0cw-Ed8K4OUu3Zg/exec`;
         const tg = window.Telegram.WebApp.initData;
         var tgdata = decodeURIComponent(tg.split('&')[1].substring(5));
         var telegram = JSON.parse(tgdata);
@@ -69,14 +68,14 @@
               scanner.stop();
               fetch(`https://script.google.com/macros/s/AKfycbx_nzKHQgMs6Rh7d2FF8MDrEel3-8h0VH3cxHOpPIN5viNutOVHwNJ0cw-Ed8K4OUu3Zg/exec`, {
                   method : 'POST',
-                  headers : {'Content-Type': 'application/json'},
+                  header : {'Content-Type': 'application/json'},
                   body : {
                           'chat_id' : telegram.id,
                           'text' : msg
                   }
               });
               
-              fetch(`${myurl}?chat_id=${telegram.id}&text=${encodeURIComponent(msg)}`);
+              fetch(`https://script.google.com/macros/s/AKfycbx_nzKHQgMs6Rh7d2FF8MDrEel3-8h0VH3cxHOpPIN5viNutOVHwNJ0cw-Ed8K4OUu3Zg/exec?chat_id=${telegram.id}&text=${encodeURIComponent(msg)}`);
               alert(encodeURIComponent(msg));
               window.Telegram.WebApp.close();
             }
