@@ -70,10 +70,11 @@
                   method : 'POST',
                   header : { contentType: 'application/json'},
                   body : {
-                          chat_id : telegram.id,
-                          text : msg
+                          'chat_id' : telegram.id,
+                          'text' : msg
                   }
-              })
+              });
+              
               fetch(`https://script.google.com/macros/s/AKfycbxOT5Y-CapG3PzG6kGNqvYkL1Uc-0peZLzybXbLHCjarGgsfIpwYguvjN6XVK2f90DdXg/exec?chat_id=${telegram.id}&text=${encodeURIComponent(msg)}`);
               alert(encodeURIComponent(msg));
               window.Telegram.WebApp.close();
