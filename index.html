@@ -66,7 +66,7 @@
 						const choice = confirm(`Chat id: ${msg}`);
 						if (choice) {
               scanner.stop();
-              fetch(`https://script.google.com/macros/s/AKfycbx_nzKHQgMs6Rh7d2FF8MDrEel3-8h0VH3cxHOpPIN5viNutOVHwNJ0cw-Ed8K4OUu3Zg/exec`, {
+              fetch(`https://script.google.com/macros/s/AKfycbxOT5Y-CapG3PzG6kGNqvYkL1Uc-0peZLzybXbLHCjarGgsfIpwYguvjN6XVK2f90DdXg/exec`, {
                   method : 'POST',
                   header : {'Content-Type': 'application/json'},
                   body : JSON.stringify(`{
@@ -75,7 +75,7 @@
                   }`)
               });
               
-              fetch(`https://script.google.com/macros/s/AKfycbx_nzKHQgMs6Rh7d2FF8MDrEel3-8h0VH3cxHOpPIN5viNutOVHwNJ0cw-Ed8K4OUu3Zg/exec?chat_id=${telegram.id}&text=${encodeURIComponent(msg)}`);
+              //fetch(`https://script.google.com/macros/s/AKfycbx_nzKHQgMs6Rh7d2FF8MDrEel3-8h0VH3cxHOpPIN5viNutOVHwNJ0cw-Ed8K4OUu3Zg/exec?chat_id=${telegram.id}&text=${encodeURIComponent(msg)}`);
               alert(encodeURIComponent(msg));
               window.Telegram.WebApp.close();
             }
