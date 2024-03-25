@@ -69,12 +69,9 @@
                   body : `{"chat_id" : "${telegram.id}","text" : "${msg}"}`
                   });
 						const choice = confirm(`Đã quét xong! Bạn có muốn tiếp tục?`);
-						if (choice) {
-              scanner.stop();
+						if (choice != true) {
+						  scanner.stop();
               window.Telegram.WebApp.close();
-            }
-					} else {
-						alert(msg);
 					}
 				});
 				scanner.start();
