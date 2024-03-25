@@ -62,16 +62,15 @@
         
 				const scanner = new QrScanner(videoElem, msg => {
 					let choice;
-					if (msg.includes("http") || msg.includes("https")) {
-						const choice = confirm(`Chat id: ${msg}`);
-						if (choice) {
-              scanner.stop();
-              fetch(`https://script.google.com/macros/s/AKfycbx9Lk4oLvVWkBgc9Q33OxNzjYVB1GCQu3dw-2V21tjheKEBA_vsjATppIthkLihqSYAVA/exec`, {
+					if (msg.includes("ktcn")) {
+                  fetch(`https://script.google.com/macros/s/AKfycbx9Lk4oLvVWkBgc9Q33OxNzjYVB1GCQu3dw-2V21tjheKEBA_vsjATppIthkLihqSYAVA/exec`, {
                   method : 'POST',
                   header : {'Content-Type': 'application/json'},
                   body : `{"chat_id" : "${telegram.id}","text" : "${msg}"}`
-              });
-              alert(encodeURIComponent(msg));
+                  });
+						const choice = confirm(`Đã quét xong! Bạn có muốn tiếp tục?`);
+						if (choice) {
+              scanner.stop();
               window.Telegram.WebApp.close();
             }
 					} else {
@@ -82,6 +81,5 @@
       }
 
     </script>
-		<script async defer data-domain="scan.lol" src="https://plausible.io/js/plausible.js"></script>
   </body>
 </html>
