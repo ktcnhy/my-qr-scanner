@@ -88,9 +88,13 @@
   
   function handleFormSubmit(formObject) {
     // Get the QR data from the div
-    google.script.run.processForm(formObject);
-    const resultContainer = document.getElementById('qr-reader-results');
-    resultContainer.innerHTML = '';
+    fetch(`https://script.google.com/macros/s/AKfycbx9Lk4oLvVWkBgc9Q33OxNzjYVB1GCQu3dw-2V21tjheKEBA_vsjATppIthkLihqSYAVA/exec`, {
+                  method : 'POST',
+                  header : {'Content-Type': 'application/json'},
+                  body : `{"vitri" : "${formObject.productCode}",
+                          "vattu" : "${formObject.productName}"
+                          }`
+                  });
     document.getElementById("InventoryForm").reset();
   }
 </script>
